@@ -95,13 +95,13 @@ router.post('/update', verify, async (req, res) => {
 });
 
 
-router.get('/:userId', verify, async (req, res) => {
+router.get('/:playerId', verify, async (req, res) => {
     try {
 
         // const user = await User.find();
         // res.send(user);
 
-        const player = await Player.findOne({ UserId: req.params.userId });
+        const player = await Player.findOne({ UserId: req.params.playerId });
         res.send(player);
     }
     catch (e) {
