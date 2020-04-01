@@ -10,4 +10,4 @@ deploy:
   provider: heroku
   api_key: $HEROKU_KEY
   on: master
-  app: salty-citadel-56178
+  app: portfolio-api-node
