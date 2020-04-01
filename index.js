@@ -16,10 +16,10 @@ mongoose.connect(process.env.DC_CONNECTION, { useNewUrlParser: true, useUnifiedT
 // app.get('/', (req, res) => {
 //     res.send("we are home")
 // });
-
+const port = process.env.PORT || 5000;
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.json());
 app.use('/api/User',signInRoutes);
 app.use('/api/Player',playerRoutes);
-app.listen(5000, () => console.log('running'));
+app.listen(port, () => console.log('running'));
