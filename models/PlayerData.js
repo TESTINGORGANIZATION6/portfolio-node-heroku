@@ -106,6 +106,6 @@ const playerSchemna = new mongoose.Schema({
     ReferencedCoach: {
         type: String
     }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Player', playerSchemna);
