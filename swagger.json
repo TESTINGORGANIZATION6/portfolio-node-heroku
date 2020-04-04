@@ -286,32 +286,94 @@
           "Agent": {
             "type": "string"
           },
-          "Clubs": {
-            "type": "array",
-            "xml": {
-              "name": "tag",
-              "wrapped": true
-            },
+          "CurrentClubName": {
+            "type": "string"
+          },
+          "CurrentClubFrom": {
+            "type": "string"
+          },
+          "CurrentClubTo": {
+            "type": "string"
+          },
+          "CurrentClubsAchievements": {
+            "type": "string"
+          },
+          "PreviousClubs": {
+            "type": "array",           
             "items": {
               "$ref": "#/components/schemas/Club"
             }
           },
-          "Heading": {
+          "Catching": {
+            "type": "integer"
+          },
+          "Punching": {
+            "type": "integer"
+          },
+          "Throwing": {
+            "type": "integer"
+          },
+          "Reflexes": {
+            "type": "integer"
+          },
+          "Distribution": {
+            "type": "integer"
+          },
+          "Center": {
+            "type": "integer"
+          },
+          "Defender": {
+            "type": "integer"
+          },
+          "Right_Back": {
+            "type": "integer"
+          },
+          "Left_Back": {
+            "type": "integer"
+          },
+          "Agility": {
+            "type": "integer"
+          },
+          "Tackle": {
+            "type": "integer"
+          },
+          "Strength": {
+            "type": "integer"
+          },
+          "Positioning": {
+            "type": "integer"
+          },
+          "Communication": {
+            "type": "integer"
+          },
+          "Ariel_Ability": {
+            "type": "integer"
+          },
+          "Vision": {
+            "type": "integer"
+          },
+          "Crossing": {
+            "type": "integer"
+          },
+          "Fitness": {
             "type": "integer"
           },
           "Shooting": {
             "type": "integer"
           },
-          "Passing": {
+          "Ball_Control": {
             "type": "integer"
           },
           "Dribbling": {
             "type": "integer"
           },
-          "BallControl": {
+          "First_Touch": {
             "type": "integer"
           },
-          "Crossing": {
+          "Passing": {
+            "type": "integer"
+          },
+          "heading": {
             "type": "integer"
           },
           "Ambition": {
@@ -342,6 +404,9 @@
           "To": {
             "type": "string",
             "format": "date"
+          },
+          "Achievements": {
+            "type": "string"
           }
         }
       }

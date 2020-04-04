@@ -17,20 +17,44 @@ const playerValidation = (data) => {
         Skills: Joi.string().required(),
         Agent: Joi.string(),
         //Step 3
-        Clubs:Joi.array(),
+        CurrentClubName:Joi.string(),
+        CurrentClubFrom:Joi.date(),
+        CurrentClubTo:Joi.date(),
+        CurrentClubsAchievements:Joi.string(),        
+        PreviousClubs: Joi.array(),
         //Step 4
-        Heading: Joi.number().required(),
-        Shooting: Joi.number().required(),
-        Passing: Joi.number().required(),
-        Dribbling: Joi.number().required(),
-        BallControl: Joi.number().required(),
-        Crossing: Joi.number().required(),
+        Catching: Joi.number().required().min(0).max(10),
+        Punching: Joi.number().required().min(0).max(10),
+        Throwing: Joi.number().required().min(0).max(10),
+        Reflexes: Joi.number().required().min(0).max(10),
+        Distribution: Joi.number().required().min(0).max(10),
+        Center: Joi.number().required().min(0).max(10),
+        Defender: Joi.number().required().min(0).max(10),
+        Right_Back: Joi.number().required().min(0).max(10),
+        Left_Back: Joi.number().required().min(0).max(10),
+        Agility: Joi.number().required().min(0).max(10),
+        Tackle: Joi.number().required().min(0).max(10),
+        Strength: Joi.number().required().min(0).max(10),
+        Positioning: Joi.number().required().min(0).max(10),
+        Communication: Joi.number().required().min(0).max(10),
+        Ariel_Ability: Joi.number().required().min(0).max(10),
+        Vision: Joi.number().required().min(0).max(10),
+        Crossing: Joi.number().required().min(0).max(10),
+        Fitness: Joi.number().required().min(0).max(10),
+        Shooting: Joi.number().required().min(0).max(10),
+        Ball_Control: Joi.number().required().min(0).max(10),
+        Dribbling: Joi.number().required().min(0).max(10),
+        First_Touch: Joi.number().required().min(0).max(10),
+        Passing: Joi.number().required().min(0).max(10),
+        heading: Joi.number().required().min(0).max(10),
+        //Step 5
         Ambition: Joi.string(),
         MobileNumber: Joi.number().required(),
+        AlternateMobileNumber:Joi.number(),
         Email: Joi.string().required(),
         ReferencedCoach: Joi.string()
     });
-    return  schema.validate(data)
+    return schema.validate(data)
 }
 
-module.exports.playerValidation=playerValidation
+module.exports.playerValidation = playerValidation
