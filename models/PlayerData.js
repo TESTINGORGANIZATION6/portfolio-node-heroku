@@ -55,7 +55,19 @@ const playerSchemna = new mongoose.Schema({
         type: String
     },
     //Step 3
-    Clubs: [{
+    CurrentClubName: {
+        type: String
+    },
+    CurrentClubFrom: {
+        type: Date
+    },
+    CurrentClubTo: {
+        type: Date
+    },
+    CurrentClubsAchievements: {
+        type: String
+    },
+    PreviousClubs: [{
         ClubName: {
             type: String
         },
@@ -64,37 +76,163 @@ const playerSchemna = new mongoose.Schema({
         },
         To: {
             type: Date
+        },
+        Achievements: {
+            type: String
         }
     }],
     //Step 4
-    Heading: {
+    Catching: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
     },
-    Shooting: {
+    Punching: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
     },
-    Passing: {
+    Throwing: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
     },
-    Dribbling: {
+    Reflexes: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
     },
-    BallControl: {
+    Distribution: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Center : {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Defender: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Right_Back: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Left_Back: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Agility: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Tackle: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Strength: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Positioning: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Communication: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Ariel_Ability: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Vision: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
     },
     Crossing: {
         type: Number,
-        default: 0
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Fitness: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Shooting: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Ball_Control: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Dribbling: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    First_Touch: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    Passing: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
+    },
+    heading: {
+        type: Number,
+        default: 0,
+        max: 10,
+        min: 0
     },
     Ambition: {
         type: String
     },
     MobileNumber: {
+        type: Number,
+    },
+    AlternateMobileNumber: {
         type: Number,
     },
     Email: {
