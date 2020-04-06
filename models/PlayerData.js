@@ -18,7 +18,7 @@ const playerSchemna = new mongoose.Schema({
         max: 255,
         min: 2
     },
-    DateOfBith: {
+    DateOfBirth: {
         type: Date,
         required: true,
     },

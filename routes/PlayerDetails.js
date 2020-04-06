@@ -7,14 +7,15 @@ const verify = require('../Validations/verifyToken');
 router.post('/create', verify, async (req, res) => {
     const { error } = playerValidation(req.body);
     if (error)
-        return res.status(400).send(error.details[0].message)
+        return res.status(400).send(error);
+        //.send({status:false,message:error.details[0].message})
 
     const player = new Player({
         UserId: req.body.UserId,
         //SETP 1
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
-        DateOfBith: req.body.DateOfBith,
+        DateOfBirth: req.body.DateOfBirth,
         Nationality: req.body.Nationality,
         Height: req.body.Height,
         Weight: req.body.Weight,
@@ -87,7 +88,7 @@ router.post('/update', verify, async (req, res) => {
                     //SETP 1
                     FirstName: req.body.FirstName,
                     LastName: req.body.LastName,
-                    DateOfBith: req.body.DateOfBith,
+                    DateOfBirth: req.body.DateOfBirth,
                     Nationality: req.body.Nationality,
                     Height: req.body.Height,
                     Weight: req.body.Weight,

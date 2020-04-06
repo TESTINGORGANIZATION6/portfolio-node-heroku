@@ -258,7 +258,7 @@
           "LastName": {
             "type": "string"
           },
-          "DateOfBith": {
+          "DateOfBirth": {
             "type": "string",
             "format": "date"
           },
