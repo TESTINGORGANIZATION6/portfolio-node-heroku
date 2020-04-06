@@ -49,7 +49,6 @@ const playerSchemna = new mongoose.Schema({
     },
     Skills: {
         type: String,
-        required: true
     },
     Agent: {
         type: String
