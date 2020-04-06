@@ -6,7 +6,7 @@ const playerValidation = (data) => {
         //SETP 1
         FirstName: Joi.string().min(2).required(),
         LastName: Joi.string().min(2).required(),
-        DateOfBith: Joi.date().required(),
+        DateOfBirth: Joi.date().required(),
         Nationality: Joi.string().required(),
         Height: Joi.number().required(),
         Weight: Joi.number().required(),
