@@ -49,9 +49,11 @@ const playerSchemna = new mongoose.Schema({
     },
     Skills: {
         type: String,
+        required: false,
     },
     Agent: {
-        type: String
+        type: String,
+        required: false,
     },
     //Step 3
     // CurrentClubName: {
@@ -77,7 +79,8 @@ const playerSchemna = new mongoose.Schema({
             type: Date
         },
         Achievements: {
-            type: String
+            type: String,
+            required: false,
         }
     }],
     //Step 4
@@ -86,149 +89,175 @@ const playerSchemna = new mongoose.Schema({
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Punching: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Throwing: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Reflexes: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Distribution: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Center_Defender : {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Right_Back: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Left_Back: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Agility: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Tackle: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Strength: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Positioning: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Communication: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Ariel_Ability: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Vision: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Crossing: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Fitness: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Shooting: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Ball_Control: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Dribbling: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         First_Touch: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Passing: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
         Heading: {
             type: Number,
             default: 0,
             max: 10,
-            min: 0
+            min: 0,
+            required: false,
         },
     },    
     Ambition: {
-        type: String
+        type: String,
+        required: false,
     },
     MobileNumber: {
         type: Number,
+        required: true,
     },
     AlternateMobileNumber: {
         type: Number,
+        required: false,
     },
     Email: {
         type: String,
@@ -237,7 +266,8 @@ const playerSchemna = new mongoose.Schema({
         min: 6
     },
     ReferencedCoach: {
-        type: String
+        type: String,
+        required: false,
     }
 }, { timestamps: true });
 
