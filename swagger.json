@@ -285,19 +285,87 @@
           },
           "Agent": {
             "type": "string"
-          },         
+          },
           "Clubs": {
-            "type": "array",           
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/Club"
             }
           },
-          "Ratings":{
+          "Ratings": {
             "type": "object",
-            "items": {
-              "$ref": "#/components/schemas/Rating"
-            }    
-          },          
+            "properties": {
+              "Catching": {
+                "type": "integer"
+              },
+              "Punching": {
+                "type": "integer"
+              },
+              "Throwing": {
+                "type": "integer"
+              },
+              "Reflexes": {
+                "type": "integer"
+              },
+              "Distribution": {
+                "type": "integer"
+              },
+              "Center_Defender": {
+                "type": "integer"
+              },
+              "Right_Back": {
+                "type": "integer"
+              },
+              "Left_Back": {
+                "type": "integer"
+              },
+              "Agility": {
+                "type": "integer"
+              },
+              "Tackle": {
+                "type": "integer"
+              },
+              "Strength": {
+                "type": "integer"
+              },
+              "Positioning": {
+                "type": "integer"
+              },
+              "Communication": {
+                "type": "integer"
+              },
+              "Ariel_Ability": {
+                "type": "integer"
+              },
+              "Vision": {
+                "type": "integer"
+              },
+              "Crossing": {
+                "type": "integer"
+              },
+              "Fitness": {
+                "type": "integer"
+              },
+              "Shooting": {
+                "type": "integer"
+              },
+              "Ball_Control": {
+                "type": "integer"
+              },
+              "Dribbling": {
+                "type": "integer"
+              },
+              "First_Touch": {
+                "type": "integer"
+              },
+              "Passing": {
+                "type": "integer"
+              },
+              "Heading": {
+                "type": "integer"
+              }
+            }
+          },
           "Ambition": {
             "type": "string"
           },
@@ -315,81 +383,7 @@
             "type": "string"
           }
         }
-      },
-      "Rating":{
-        "type": "object",
-        "properties": {
-          "Catching": {
-            "type": "integer"
-          },
-          "Punching": {
-            "type": "integer"
-          },
-          "Throwing": {
-            "type": "integer"
-          },
-          "Reflexes": {
-            "type": "integer"
-          },
-          "Distribution": {
-            "type": "integer"
-          },
-          "Center_Defender": {
-            "type": "integer"
-          },
-          "Right_Back": {
-            "type": "integer"
-          },
-          "Left_Back": {
-            "type": "integer"
-          },
-          "Agility": {
-            "type": "integer"
-          },
-          "Tackle": {
-            "type": "integer"
-          },
-          "Strength": {
-            "type": "integer"
-          },
-          "Positioning": {
-            "type": "integer"
-          },
-          "Communication": {
-            "type": "integer"
-          },
-          "Ariel_Ability": {
-            "type": "integer"
-          },
-          "Vision": {
-            "type": "integer"
-          },
-          "Crossing": {
-            "type": "integer"
-          },
-          "Fitness": {
-            "type": "integer"
-          },
-          "Shooting": {
-            "type": "integer"
-          },
-          "Ball_Control": {
-            "type": "integer"
-          },
-          "Dribbling": {
-            "type": "integer"
-          },
-          "First_Touch": {
-            "type": "integer"
-          },
-          "Passing": {
-            "type": "integer"
-          },
-          "Heading": {
-            "type": "integer"
-          }
-        }
-      },
+      },      
       "Club": {
         "type": "object",
         "properties": {
