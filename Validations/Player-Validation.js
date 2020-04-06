@@ -14,8 +14,8 @@ const playerValidation = (data) => {
         Position: Joi.string().required(),
         Role: Joi.string().required(),
         Foot: Joi.string().required(),
-        Skills: Joi.string(),
-        Agent: Joi.string(),
+        Skills: Joi.string().optional().allow(''),
+        Agent: Joi.string().optional().allow(''),
         //Step 3
         // CurrentClubName:Joi.string(),
         // CurrentClubFrom:Joi.date(),
@@ -49,7 +49,7 @@ const playerValidation = (data) => {
             Heading: Joi.number().min(0).max(10)
         },
         //Step 5
-        Ambition: Joi.string(),
+        Ambition: Joi.string().optional().allow(''),
         MobileNumber: Joi.number().required(),
         AlternateMobileNumber: Joi.number(),
         Email: Joi.string().required(),
