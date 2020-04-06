@@ -285,20 +285,8 @@
           },
           "Agent": {
             "type": "string"
-          },
-          "CurrentClubName": {
-            "type": "string"
-          },
-          "CurrentClubFrom": {
-            "type": "string"
-          },
-          "CurrentClubTo": {
-            "type": "string"
-          },
-          "CurrentClubsAchievements": {
-            "type": "string"
-          },
-          "PreviousClubs": {
+          },         
+          "Clubs": {
             "type": "array",           
             "items": {
               "$ref": "#/components/schemas/Club"
@@ -319,10 +307,7 @@
           "Distribution": {
             "type": "integer"
           },
-          "Center": {
-            "type": "integer"
-          },
-          "Defender": {
+          "Center_Defender": {
             "type": "integer"
           },
           "Right_Back": {
@@ -380,6 +365,9 @@
             "type": "string"
           },
           "MobileNumber": {
+            "type": "integer"
+          },
+          "AlternateMobileNumber": {
             "type": "integer"
           },
           "Email": {
