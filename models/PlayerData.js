@@ -55,19 +55,19 @@ const playerSchemna = new mongoose.Schema({
         type: String
     },
     //Step 3
-    CurrentClubName: {
-        type: String
-    },
-    CurrentClubFrom: {
-        type: Date
-    },
-    CurrentClubTo: {
-        type: Date
-    },
-    CurrentClubsAchievements: {
-        type: String
-    },
-    PreviousClubs: [{
+    // CurrentClubName: {
+    //     type: String
+    // },
+    // CurrentClubFrom: {
+    //     type: Date
+    // },
+    // CurrentClubTo: {
+    //     type: Date
+    // },
+    // CurrentClubsAchievements: {
+    //     type: String
+    // },
+    Clubs: [{
         ClubName: {
             type: String
         },
@@ -112,13 +112,7 @@ const playerSchemna = new mongoose.Schema({
         max: 10,
         min: 0
     },
-    Center : {
-        type: Number,
-        default: 0,
-        max: 10,
-        min: 0
-    },
-    Defender: {
+    Center_Defender : {
         type: Number,
         default: 0,
         max: 10,
