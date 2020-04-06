@@ -292,6 +292,33 @@
               "$ref": "#/components/schemas/Club"
             }
           },
+          "Ratings":{
+            "type": "object",
+            "items": {
+              "$ref": "#/components/schemas/Rating"
+            }    
+          },          
+          "Ambition": {
+            "type": "string"
+          },
+          "MobileNumber": {
+            "type": "integer"
+          },
+          "AlternateMobileNumber": {
+            "type": "integer"
+          },
+          "Email": {
+            "type": "string",
+            "format": "email"
+          },
+          "ReferencedCoach": {
+            "type": "string"
+          }
+        }
+      },
+      "Rating":{
+        "type": "object",
+        "properties": {
           "Catching": {
             "type": "integer"
           },
@@ -358,24 +385,8 @@
           "Passing": {
             "type": "integer"
           },
-          "heading": {
+          "Heading": {
             "type": "integer"
-          },
-          "Ambition": {
-            "type": "string"
-          },
-          "MobileNumber": {
-            "type": "integer"
-          },
-          "AlternateMobileNumber": {
-            "type": "integer"
-          },
-          "Email": {
-            "type": "string",
-            "format": "email"
-          },
-          "ReferencedCoach": {
-            "type": "string"
           }
         }
       },
