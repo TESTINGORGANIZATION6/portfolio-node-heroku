@@ -10,11 +10,11 @@ router.post('/signup', async (req, res) => {
     const { error } = signUpValidation(req.body);
 
     if (error)
-        return res.status(400).send(error.details[0].message);
+        return res.status(200).send({ success: false, message: error.details[0].message });
 
     const emailExists = await User.findOne({ Email: req.body.Email });
     if (emailExists)
-        return res.status(400).send({ message: 'Email Already Exists' });
+        return res.status(200).send({ success: false, message: 'Email Already Exists' });
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.Password, salt);
@@ -29,7 +29,7 @@ router.post('/signup', async (req, res) => {
 
     try {
         const savedUser = await user.save();
-        res.send({ user: user._id, message: 'User successfully reqistered' })
+        res.send({ userId: user._id, message: 'User successfully reqistered' })
     }
     catch (e) {
         res.status(400).send(e);
@@ -39,14 +39,15 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     const { error } = loginValidation(req.body);
     if (error)
-        return res.status(400).send(error.details[0].message);
+        return res.status(200).send({ success: false, message: error.details[0].message });
 
     const user = await User.findOne({ Email: req.body.Email });
     if (!user)
-        return res.status(400).send({ message: 'Email or Password Incorrect' });
+        return res.status(200).send({ success: false, message: 'Email or Password Incorrect' });
 
     const validPassord = await bcrypt.compare(req.body.Password, user.Password);
-    if (!validPassord) return res.status(400).send('Invalid password')
+    if (!validPassord)
+        return res.status(200).send({ success: false, message: 'Invalid password' });
 
     const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET)
     res.header('auth-token', token).send({ userId: user._id, token: token });
