@@ -12,15 +12,17 @@ const userSchema = new mongoose.Schema({
         max: 255,
         min: 2
     },
+    UserName:{
+        type: String,
+        required: true,
+        max: 255,
+        min: 2
+    },
     Email: {
         type: String,
         required: true,
         max: 255,
         min: 6
-    },
-    Role:{
-        type: String,
-        required: true        
     },
     Password: {
         type: String,
