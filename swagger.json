@@ -115,6 +115,33 @@
         }
       }
     },
+    "/api/User/checkusername/{userName}": {
+      "get": {
+        "tags": [
+          "SignUp"
+        ],
+        "summary": "Check Username",
+        "description": "Check if username is already taken",
+        "operationId": "Username",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "description": "Username needed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "error",
+            "content": {}
+          }
+        }
+      }
+    },
     "/api/Player/create": {
       "post": {
         "tags": [
@@ -225,12 +252,12 @@
           "LastName": {
             "type": "string"
           },
+          "UserName": {
+            "type": "string"
+          },          
           "Email": {
             "type": "string",
             "format": "email"
-          },
-          "Role": {
-            "type": "string"
           },
           "Password": {
             "type": "string"

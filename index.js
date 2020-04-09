@@ -10,12 +10,9 @@ const app = express();
 app.use(cors());
 dotenv.config();
 
-mongoose.connect(process.env.DC_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log('Connected to DB'))
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log('Connected to DB'));
 
-// app.get('/', (req, res) => {
-//     res.send("we are home")
-// });
 const port = process.env.PORT || 5000;
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
