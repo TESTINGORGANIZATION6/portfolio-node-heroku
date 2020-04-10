@@ -267,9 +267,8 @@
       "Login": {
         "type": "object",
         "properties": {
-          "Email": {
-            "type": "string",
-            "format": "email"
+          "UserName": {
+            "type": "string"           
           },
           "Password": {
             "type": "string"

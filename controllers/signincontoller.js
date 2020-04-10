@@ -43,16 +43,16 @@ exports.login = async (req, res) => {
     if (error)
         return res.status(200).send({ success: false, message: error.details[0].message });
 
-    const user = await User.findOne({ Email: req.body.Email });
+    const user = await User.findOne({ UserName: req.body.UserName });
     if (!user)
-        return res.status(200).send({ success: false, message: 'Email or Password Incorrect' });
+        return res.status(200).send({ success: false, message: 'Username or Password Incorrect' });
 
     const validPassord = await bcrypt.compare(req.body.Password, user.Password);
     if (!validPassord)
         return res.status(200).send({ success: false, message: 'Invalid password' });
 
     const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET)
-    res.header('auth-token', token).send({ userId: user._id, token: token });
+    res.header('auth-token', token).send({ userId: user._id, token: token,message:'Logged In successfully.' });
 };
 
 exports.getuser = async (req, res) => {
