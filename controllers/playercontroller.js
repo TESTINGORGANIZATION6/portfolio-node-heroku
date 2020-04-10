@@ -60,7 +60,7 @@ exports.create = async (req, res) => {
         //Step 5
         Ambition: req.body.Ambition,
         MobileNumber: req.body.MobileNumber,
-        AlternateMobileNumber: req.body.MobileNumber,
+        AlternateMobileNumber: req.body.AlternateMobileNumber,
         Email: req.body.Email,
         ReferencedCoach: req.body.ReferencedCoach
     });
@@ -132,7 +132,7 @@ exports.update=async (req,res)=>{
                     //Step 5
                     Ambition: req.body.Ambition,
                     MobileNumber: req.body.MobileNumber,
-                    AlternateMobileNumber: req.body.MobileNumber,
+                    AlternateMobileNumber: req.body.AlternateMobileNumber,
                     Email: req.body.Email,
                     ReferencedCoach: req.body.ReferencedCoach
                 }
