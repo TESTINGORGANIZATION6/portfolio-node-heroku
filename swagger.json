@@ -83,7 +83,7 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/api/User/{userId}": {
+    "/api/User": {
       "get": {
         "tags": [
           "SignUp"
@@ -99,7 +99,7 @@
         "parameters": [
           {
             "name": "userId",
-            "in": "path",
+            "in": "query",
             "description": "The auto generated userid needed",
             "required": true,
             "schema": {
@@ -115,7 +115,28 @@
         }
       }
     },
-    "/api/User/checkusername/{userName}": {
+    "/api/User/verifysession": {
+      "get": {
+        "tags": [
+          "SignUp"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Verify session",
+        "description": "check if session timed out or not",
+        "operationId": "verify",        
+        "responses": {
+          "400": {
+            "description": "error",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/api/User/checkusername": {
       "get": {
         "tags": [
           "SignUp"
@@ -126,7 +147,7 @@
         "parameters": [
           {
             "name": "userName",
-            "in": "path",
+            "in": "query",
             "description": "Username needed",
             "required": true,
             "schema": {
@@ -208,7 +229,7 @@
         "x-codegen-request-body-name": "body"
       }
     },
-    "/api/Player/{playerId}": {
+    "/api/Player": {
       "get": {
         "tags": [
           "Player"
@@ -224,7 +245,7 @@
         "parameters": [
           {
             "name": "playerId",
-            "in": "path",
+            "in": "query",
             "description": "Player Object that has details related to player",
             "required": true,
             "schema": {

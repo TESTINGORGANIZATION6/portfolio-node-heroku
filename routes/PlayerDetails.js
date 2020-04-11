@@ -6,6 +6,6 @@ router.post('/create',verify,create);
 
 router.post('/update',verify,update);
 
-router.get('/:playerId', verify,getplayer);
+router.get('/', verify,getplayer);
 
 module.exports = router;
