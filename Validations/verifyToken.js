@@ -5,7 +5,6 @@ module.exports = function (req, res, next) {
     let token = req.header('x-access-token') || req.header('Authorization') || req.header('auth-token');
     //let token = req.headers['x-access-token'] || req.headers['authorization'] || req.headers('auth-token');
     if (!token) return res.status(401).send({ status: false, message: 'Access Denied' });
-
     try {
         if (token.startsWith('Bearer ')) {
             // Remove Bearer from string
