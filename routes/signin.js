@@ -1,14 +1,16 @@
 const router = require('express').Router();
-const {signup,login,getuser,checkusername} = require('../controllers/signincontoller');
+const { signup, login, getuser, checkusername, validateSession } = require('../controllers/signincontoller');
 const verify = require('../Validations/verifyToken');
 
 
-router.post('/signup',signup);
+router.post('/signup', signup);
 
-router.get('/checkusername/:userName',checkusername);
+router.get('/checkusername', checkusername);
 
-router.post('/login',login);
+router.post('/login', login);
 
-router.get('/:userId',verify,getuser);
+router.get('/', verify, getuser);
+
+router.get('/verifysession', verify, validateSession);
 
 module.exports = router;

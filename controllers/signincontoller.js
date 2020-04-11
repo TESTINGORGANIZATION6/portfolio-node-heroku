@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
         return res.status(200).send({ success: false, message: 'Invalid password' });
 
     const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET)
-    res.header('auth-token', token).send({ userId: user._id, token: token,message:'Logged In successfully.' });
+    res.header('auth-token', token).send({ userId: user._id, token: token, message: 'Logged In successfully.' });
 };
 
 exports.getuser = async (req, res) => {
@@ -61,7 +61,7 @@ exports.getuser = async (req, res) => {
         // const user = await User.find();
         // res.send(user);
 
-        const user = await User.findOne(req.param.userId);
+        const user = await User.findOne({ _id: req.query.userId });
         res.send(user);
     }
     catch (e) {
@@ -71,13 +71,23 @@ exports.getuser = async (req, res) => {
 
 exports.checkusername = async (req, res) => {
     try {
-        const userNameError = await User.findOne({ UserName: req.params.userName })
+        const userNameError = await User.findOne({ UserName: req.query.userName })
         if (userNameError)
-            return res.status(200).send({ success: false, message: 'Username already exists' });
+            res.status(200).send({ success: false, message: 'Username already exists' });
         else
-            return res.status(200).send({ success: true, message: 'Username available' });
+            res.status(200).send({ success: true, message: 'Username available' });
     }
     catch (e) {
         res.status(400).send(e);
+    }
+};
+
+exports.validateSession = async (req, res) => {
+    console.log(req)
+    try {
+        return res.status(200).send({ success: true, message: 'Valid Session' });
+    }
+    catch (err) {
+        return res.status(401).send({ success: true, message: 'Session Expired' });
     }
 };

@@ -151,10 +151,14 @@ exports.getplayer=async (req,res)=>{
         // const user = await User.find();
         // res.send(user);
 
-        const player = await Player.findOne({ UserId: req.params.playerId });
+        const player = await Player.findOne({ UserId: req.query.playerId });
         res.send(player);
     }
     catch (e) {
         res.status(400).send(e);
     }
 };
+
+exports.changeProfileStatus=async(req,res)=>{
+    
+}

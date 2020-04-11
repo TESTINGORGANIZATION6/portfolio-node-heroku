@@ -33,7 +33,11 @@ const userSchema = new mongoose.Schema({
     RegistrationDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    ProfileStatus: {
+        type: Boolean,
+        default: true
+    },
 }, { timestamps: true });
 
 module.exports= mongoose.model('User',userSchema);
