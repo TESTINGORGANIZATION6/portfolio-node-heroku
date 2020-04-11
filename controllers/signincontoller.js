@@ -71,6 +71,9 @@ exports.getuser = async (req, res) => {
 
 exports.checkusername = async (req, res) => {
     try {
+        if (req.query.userName.trim().length < 6)
+            res.status(200).send({ success: false, message: 'Username must be minimum 6 characters.' });
+
         const userNameError = await User.findOne({ UserName: req.query.userName })
         if (userNameError)
             res.status(200).send({ success: false, message: 'Username already exists' });
