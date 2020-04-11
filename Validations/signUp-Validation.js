@@ -23,7 +23,7 @@ const loginValidation = (data) => {
 const changeProfileStatusValidation = (data) => {
     const schema = Joi.object({
         UserID: Joi.string().min(6).required(),
-        ProfileStatus: Joi.bool();
+        ProfileStatus: Joi.bool()
     });
     return schema.validate(data)
 }
