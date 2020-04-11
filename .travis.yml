@@ -11,4 +11,3 @@ deploy:
   api_key: $HEROKU_KEY
   on: master
   app: portfolio-api-node
-  
