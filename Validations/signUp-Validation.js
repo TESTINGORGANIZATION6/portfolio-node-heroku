@@ -20,13 +20,13 @@ const loginValidation = (data) => {
     return schema.validate(data)
 }
 
-const changeProfileStatusValidation = (data) => {
-    const schema = Joi.object({
-        UserID: Joi.string().min(6).required(),
-        ProfileStatus: Joi.bool()
-    });
-    return schema.validate(data)
-}
+// const changeProfileStatusValidation = (data) => {
+//     const schema = Joi.object({
+//         UserID: Joi.string().min(6).required(),
+//         ProfileStatus: Joi.bool()
+//     });
+//     return schema.validate(data)
+// }
 
 
 module.exports.signUpValidation = signUpValidation;
