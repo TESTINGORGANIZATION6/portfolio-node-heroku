@@ -51,8 +51,17 @@ exports.login = async (req, res) => {
     if (!validPassord)
         return res.status(200).send({ success: false, message: 'Invalid password' });
 
-    const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET, { expiresIn: 60 })
-    res.header('auth-token', token).send({ userId: user._id, token: token, message: 'Logged In successfully.' });
+    const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET, { expiresIn: 900 })
+    res.header('auth-token', token).send({
+        success: true, 
+        userId: user._id,
+        FirstName: user.FirstName,
+        LastName: user.LastName,
+        UserName: user.UserName,
+        Email: user.Email,
+        token: token,
+        message: 'Logged In successfully.'
+    });
 };
 
 exports.getuser = async (req, res) => {
@@ -62,7 +71,14 @@ exports.getuser = async (req, res) => {
         // res.send(user);
 
         const user = await User.findOne({ _id: req.query.userId });
-        res.send(user);
+        res.send({
+            success: true, 
+            userId: user._id,
+            FirstName: user.FirstName,
+            LastName: user.LastName,
+            UserName: user.UserName,
+            Email: user.Email
+        });
     }
     catch (e) {
         res.status(400).send(e);
