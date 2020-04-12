@@ -38,6 +38,9 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    sso: {
+        type: String
+    }
 }, { timestamps: true });
 
 module.exports= mongoose.model('User',userSchema);

@@ -39,6 +39,14 @@ exports.signup = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+    if (req.body.sso) {
+        const user = await User.findOne({ _id: req.body.UserName });
+        if (!user) 
+            return res.status(400).send('Authentication failed, please try again')
+        const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET)
+        return  res.header('auth-token', token).send({ userId: user._id, token: token,message:'Logged In successfully.' });
+    }
+    
     const { error } = loginValidation(req.body);
     if (error)
         return res.status(200).send({ success: false, message: error.details[0].message });
