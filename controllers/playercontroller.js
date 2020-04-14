@@ -1,14 +1,42 @@
 const Player = require('../models/PlayerData');
 const { playerValidation } = require('../Validations/Player-Validation');
-
+//const formidable = require('formidable');
+// const fs = require('fs');
+// var https = require('https');
+// var MongoClient = require('mongodb').MongoClient;
+// var Binary = require('mongodb').Binary;
 
 
 
 exports.create = async (req, res) => {
+    // let image_path = 'D:/Work/Git/Portfolio/portfolio-node-heroku/Uploads/Players/' + Date.now() + '.jpg';
+    // saveImageToDisk(req.body.Photo, image_path);
+    //console.log(Binary(fs.readFileSync(image_path)));
+    //console.log(fs.readlink(req.body.Photo));
+    // let form = new formidable.IncomingForm();
+    // form.keepExtensions = true;
+    // form.maxFieldsSize = 5 * 1024 * 1024 //5MB;
+    // form.multiples = false;
+    // let encoded = '';
+    // let contentType = '';
+    // form.parse(req, (err, fields, files) => {
+    //     if (err) {
+    //         res.status(400).send({ success: false, message: 'image could not be uploaded' })
+    //     }
+    //     encoded = fs.readFileSync(files.photo.path);
+    //     contentType = files.photo.type;
+    // });
+    //console.log(Binary(fs.readFileSync(req.body.Photo)));
+
     const { error } = playerValidation(req.body);
     if (error)
         return res.status(200).send({ success: false, message: error.details[0].message });
-
+    var matches = req.body.Photo.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+    if (!matches)
+        return res.status(200).send({ success: false, message: 'Invalid Base64' });
+    if (matches.length !== 3) {
+        return res.status(200).send({ success: false, message: 'Invalid Base64' });
+    }
     const player = new Player({
         UserId: req.body.UserId,
         //SETP 1
@@ -62,7 +90,8 @@ exports.create = async (req, res) => {
         MobileNumber: req.body.MobileNumber,
         AlternateMobileNumber: req.body.AlternateMobileNumber,
         Email: req.body.Email,
-        ReferencedCoach: req.body.ReferencedCoach
+        ReferencedCoach: req.body.ReferencedCoach,
+        Photo: req.body.Photo
     });
 
     try {
@@ -71,15 +100,27 @@ exports.create = async (req, res) => {
     }
     catch (e) {
         res.status(400).send(e);
-    }
+    };
+
 };
 
-exports.update=async (req,res)=>{
+exports.update = async (req, res) => {
+    // let image_path = 'D:/Work/Git/Portfolio/portfolio-node-heroku/Uploads/Players/' + Date.now() + '.jpg';
+    // saveImageToDisk(req.body.Photo.Path, image_path);
+    // let encoded = fs.readFileSync(image_path);
     const { error } = playerValidation(req.body);
     if (error)
         return res.status(200).send({ success: false, message: error.details[0].message });
-    console.log(req);
+
+    var matches = req.body.Photo.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+    if (!matches)
+        return res.status(200).send({ success: false, message: 'Invalid Base64' });
+    if (matches.length !== 3) {
+        return res.status(200).send({ success: false, message: 'Invalid Base64' });
+    }
+    console.log(matches);
     try {
+
         const savedPlayer = await Player.updateOne(
             { UserId: req.body.UserId },
             {
@@ -134,7 +175,8 @@ exports.update=async (req,res)=>{
                     MobileNumber: req.body.MobileNumber,
                     AlternateMobileNumber: req.body.AlternateMobileNumber,
                     Email: req.body.Email,
-                    ReferencedCoach: req.body.ReferencedCoach
+                    ReferencedCoach: req.body.ReferencedCoach,
+                    Photo: req.body.Photo
                 }
             }
         );
@@ -145,7 +187,7 @@ exports.update=async (req,res)=>{
     }
 };
 
-exports.getplayer=async (req,res)=>{
+exports.getplayer = async (req, res) => {
     try {
 
         // const user = await User.find();
@@ -159,6 +201,23 @@ exports.getplayer=async (req,res)=>{
     }
 };
 
-exports.changeProfileStatus=async(req,res)=>{
-    
+// function saveImageToDisk(url, localPath) {
+//     var fullUrl = url;
+//     var file = fs.createWriteStream(localPath);
+//     console.log(file);
+//     let encoded;
+//     var request = https.get(url, function (response) {
+//         response.pipe(file);
+//         // encoded = Binary(fs.readFileSync(file.path));
+//         // console.log(encoded);
+//         var data = fs.readFileSync(localPath);
+//         var insert_data = {};
+//         insert_data.file_data = Binary(data);
+//         console.log(insert_data);
+//     });
+
+// }
+
+exports.changeProfileStatus = async (req, res) => {
+
 }

@@ -84,7 +84,7 @@ const playerSchemna = new mongoose.Schema({
         }
     }],
     //Step 4
-    Ratings:{
+    Ratings: {
         Catching: {
             type: Number,
             default: 0,
@@ -120,7 +120,7 @@ const playerSchemna = new mongoose.Schema({
             min: 0,
             required: false,
         },
-        Center_Defender : {
+        Center_Defender: {
             type: Number,
             default: 0,
             max: 10,
@@ -246,7 +246,7 @@ const playerSchemna = new mongoose.Schema({
             min: 0,
             required: false,
         },
-    },    
+    },
     Ambition: {
         type: String,
         required: false,
@@ -268,7 +268,10 @@ const playerSchemna = new mongoose.Schema({
     ReferencedCoach: {
         type: String,
         required: false,
-    }
+    },
+    Photo: {
+        type:String
+    },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Player', playerSchemna);

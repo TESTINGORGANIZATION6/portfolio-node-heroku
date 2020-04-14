@@ -53,7 +53,8 @@ const playerValidation = (data) => {
         MobileNumber: Joi.number().required(),
         AlternateMobileNumber: Joi.number(),
         Email: Joi.string().required(),
-        ReferencedCoach: Joi.string()
+        ReferencedCoach: Joi.string(),
+        Photo:Joi.string(),
     });
     return schema.validate(data)
 }
