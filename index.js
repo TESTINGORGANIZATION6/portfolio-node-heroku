@@ -22,7 +22,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb' }));
 app.use('/api/User',signInRoutes);
 app.use('/api/Player',playerRoutes);
 app.use('/api/Auth', require('./routes/auth-routes'));
