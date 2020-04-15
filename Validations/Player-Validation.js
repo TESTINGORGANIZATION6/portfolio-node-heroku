@@ -51,9 +51,9 @@ const playerValidation = (data) => {
         //Step 5
         Ambition: Joi.string().optional().allow(''),
         MobileNumber: Joi.number().required(),
-        AlternateMobileNumber: Joi.number(),
+        AlternateMobileNumber: Joi.number().allow(''),
         Email: Joi.string().required(),
-        ReferencedCoach: Joi.string(),
+        ReferencedCoach: Joi.string().allow(''),
         Photo:Joi.string(),
     });
     return schema.validate(data)
