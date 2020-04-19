@@ -36,8 +36,8 @@ passport.use(
 // displayName
 passport.use(
   new FacebookStrategy({
-    clientID: process.env.clientID_FB,
-    clientSecret: process.env.clientSecret_FB,
+    clientID: process.env.CLIENT_ID_FB,
+    clientSecret: process.env.CLIENT_SECRET_FB,
     callbackURL: "/api/auth/facebook/redirect"
   }, (accessToken,
       refreshToken,
