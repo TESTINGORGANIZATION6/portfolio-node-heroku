@@ -25,4 +25,17 @@ router.get('/google/redirect', passport.authenticate('google', {
   res.redirect(`${CLIENT_HOME_PAGE_URL}?token=${token}&user=google`)
 });
 
+router.get('/facebook', passport.authenticate('facebook',
+{ 
+  scope : ['email'] 
+}
+));
+
+router.get('/facebook/redirect', passport.authenticate('facebook', { 
+  failureRedirect: '/auth/login/failed' 
+}), (req, res) => {
+  const token = req.user._id
+  res.redirect(`${CLIENT_HOME_PAGE_URL}?token=${token}&user=facebook`)
+})
+
 module.exports = router;
