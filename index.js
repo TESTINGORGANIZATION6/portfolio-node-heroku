@@ -5,7 +5,7 @@ const signInRoutes=require('./routes/signin');
 const playerRoutes=require('./routes/PlayerDetails');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-var cors = require('cors')
+const cors = require('cors')
 const app = express();
 app.use(cors());
 dotenv.config();
