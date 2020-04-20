@@ -37,6 +37,9 @@ exports.create = async (req, res) => {
     if (matches.length !== 3) {
         return res.status(200).send({ success: false, message: 'Invalid Base64' });
     }
+    if (!checkImageSize(req.body.Photo))
+        return res.status(200).send({ success: false, message: 'Profile image size must be less than 500KB' });
+
     const player = new Player({
         UserId: req.body.UserId,
         //SETP 1
@@ -118,7 +121,10 @@ exports.update = async (req, res) => {
     if (matches.length !== 3) {
         return res.status(200).send({ success: false, message: 'Invalid Base64' });
     }
-    console.log(matches);
+
+    if (!checkImageSize(req.body.Photo))
+        return res.status(200).send({ success: false, message: 'Profile image size must be less than 500KB' });
+
     try {
 
         const savedPlayer = await Player.updateOne(
@@ -218,6 +224,8 @@ exports.getplayer = async (req, res) => {
 
 // }
 
-exports.changeProfileStatus = async (req, res) => {
-
+function checkImageSize(imageBase64) {
+    const stringLength = imageBase64.length - 'data:image/png;base64,'.length;
+    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+    return Math.ceil(sizeInBytes / 1024) < 500;
 }
