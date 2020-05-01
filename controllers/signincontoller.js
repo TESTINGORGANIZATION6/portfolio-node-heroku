@@ -2,6 +2,7 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { signUpValidation, loginValidation } = require('../Validations/signUp-Validation');
+const Log = require('../Log/logConfig');
 
 
 exports.signup = async (req, res) => {
@@ -31,9 +32,23 @@ exports.signup = async (req, res) => {
 
     try {
         const savedUser = await user.save();
+        Log.logger.log({
+            level: 'info',
+            FileName: 'signincontroller.js',
+            FunctionName: 'signup',
+            CreatedDate: new Date(),
+            Message: 'user Added-'+user._id
+        });     
         res.send({ userId: user._id, message: 'User successfully reqistered' })
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'signincontroller.js',
+            FunctionName: 'signup',
+            CreatedDate: new Date(),
+            Message: e.stack
+        });     
         res.status(400).send(e);
     }
 };
@@ -60,6 +75,13 @@ exports.login = async (req, res) => {
         return res.status(200).send({ success: false, message: 'Invalid password' });
 
     const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET, { expiresIn: 900 })
+    Log.logger.log({
+        level: 'info',
+        FileName: 'signincontroller.js',
+        FunctionName: 'login',
+        CreatedDate: new Date(),
+        Message: user._id+'-Logged in'
+    });     
     res.header('auth-token', token).send({
         success: true, 
         userId: user._id,
@@ -89,6 +111,13 @@ exports.getuser = async (req, res) => {
         });
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'signincontroller.js',
+            FunctionName: 'getuser',
+            CreatedDate: new Date(),
+            Message: e.stack
+        });     
         res.status(400).send(e);
     }
 };
@@ -105,6 +134,13 @@ exports.checkusername = async (req, res) => {
             res.status(200).send({ success: true, message: 'Username available' });
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'signincontroller.js',
+            FunctionName: 'checkusername',
+            CreatedDate: new Date(),
+            Message: e.stack
+        }); 
         res.status(400).send(e);
     }
 };

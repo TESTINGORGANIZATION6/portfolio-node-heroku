@@ -260,6 +260,49 @@
           }
         }
       }
+    },
+    "/api/log/insertlog": {
+      "post": {
+        "tags": [
+          "Log"
+        ],
+        "summary": "logging",        
+        "description": "insert log on every ajax. especially on catch block for error",
+        "operationId": "post",
+        "requestBody": {
+          "description": "LogType : error,info,warn these are three main type to be passed in log type parameter respectively",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Log"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "error",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/api/log/getlogs": {
+      "get": {
+        "tags": [
+          "Log"
+        ],
+        "summary": "logging",
+        "description": "Get logs",
+        "operationId": "Get",        
+        "responses": {
+          "400": {
+            "description": "error",
+            "content": {}
+          }
+        }
+      }
     }
   },
   "components": {
@@ -455,6 +498,23 @@
             "type": "string"
           }
         }
+      },
+      "Log":{
+        "type":"object",
+        "properties": {
+          "LogType": {
+            "type": "string"
+          },
+          "FileName": {
+            "type": "string"          
+          },
+          "FunctionName": {
+            "type": "string"          
+          },        
+          "Message": {
+            "type": "string"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -463,6 +523,6 @@
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }
-    }
+    }  
   }
 }

@@ -1,5 +1,6 @@
 const Player = require('../models/PlayerData');
 const { playerValidation } = require('../Validations/Player-Validation');
+const Log = require('../Log/logConfig');
 //const formidable = require('formidable');
 // const fs = require('fs');
 // var https = require('https');
@@ -99,9 +100,23 @@ exports.create = async (req, res) => {
 
     try {
         const savedPlayer = await player.save();
+        Log.logger.log({
+            level: 'info',
+            FileName: 'playercontroller.js',
+            FunctionName: 'create-player',
+            CreatedDate: new Date(),
+            Message: 'Player Added-'+player._id
+        });     
         res.send({ player: player._id, message: 'Player details saved' })
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'playercontroller.js',
+            FunctionName: 'create-player',
+            CreatedDate: new Date(),
+            Message: e.stack
+        });     
         res.status(400).send(e);
     };
 
@@ -186,9 +201,23 @@ exports.update = async (req, res) => {
                 }
             }
         );
+        Log.logger.log({
+            level: 'info',
+            FileName: 'playercontroller.js',
+            FunctionName: 'update-player',
+            CreatedDate: new Date(),
+            Message: 'Player updated-'+req.body.UserId
+        });     
         res.send({ player: savedPlayer, message: 'Player details updated.' })
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'playercontroller.js',
+            FunctionName: 'update-player',
+            CreatedDate: new Date(),
+            Message: e.stack
+        });     
         res.status(400).send(e);
     }
 };
@@ -203,6 +232,13 @@ exports.getplayer = async (req, res) => {
         res.send(player);
     }
     catch (e) {
+        Log.logger.log({
+            level: 'error',
+            FileName: 'playercontroller.js',
+            FunctionName: 'get-player',
+            CreatedDate: new Date(),
+            Message: e.stack
+        });     
         res.status(400).send(e);
     }
 };
